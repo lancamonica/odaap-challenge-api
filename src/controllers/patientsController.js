@@ -7,10 +7,10 @@ module.exports = {
     const createdAt = new Date();
 
     const patient = await Patient.create({
-      name,
-      age,
-      city,
-      state,
+      name: name.trim(),
+      age: age.trim(),
+      city: city.trim(),
+      state: state.trim(),
       created_at: createdAt
     });
     return res.json(patient);
@@ -36,10 +36,10 @@ module.exports = {
     await Patient.updateOne(
       { _id: id },
       {
-        name,
+        name: name.trim(),
         age,
-        city,
-        state,
+        city: city.trim(),
+        state: state.trim(),
         updated_at: updatedAt
       }
     );
